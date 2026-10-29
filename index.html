@@ -34,4 +34,97 @@ a{color:inherit;text-decoration:none}.wrap{width:min(920px,calc(100% - 28px));ma
 </div></section>
 <section id="links"><div class="section-head"><h2
 </div></section></main>
-<footer>made with © & 🐈‍⬛ · Eros's personal page</footer></div></body></html>
+<footer>made with © & 🐈‍⬛ · Eros's personal page</footer></div>
+  <!-- ========================================== -->
+<!-- 1. HIỆU ỨNG BỤI SAO TÍM BAY LƠ LỬNG        -->
+<!-- ========================================== -->
+<div id="particles-js"></div>
+<script src="https://jsdelivr.net"></script>
+<style>
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+</style>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": ["#b90aff", "#d5baff", "#ffffff"] },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1 } },
+    "size": { "value": 3, "random": true },
+    "line_linked": { "enable": false },
+    "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "out_mode": "out" }
+  },
+  "retina_detect": true
+});
+</script>
+
+<!-- ========================================== -->
+<!-- 2. TRÌNH PHÁT NHẠC MINI (GÓC MÀN HÌNH)    -->
+<!-- ========================================== -->
+<div class="music-player">
+  <div class="disc" id="musicDisc">
+    <img src="https://imgur.com" alt="Disc">
+  </div>
+  <div class="player-controls">
+    <p class="song-title">Music Chill ✨</p>
+    <button id="playBtn">▶ Play</button>
+  </div>
+  <audio id="myAudio" src="https://soundhelix.com" loop></audio>
+</div>
+<style>
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(23, 17, 31, 0.9);
+  border: 1px solid #b90aff;
+  box-shadow: 0 0 15px rgba(185, 10, 255, 0.4);
+  padding: 10px 15px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+}
+.disc {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #b90aff;
+  animation: spin 4s linear infinite;
+  animation-play-state: paused;
+}
+.disc img { width: 100%; height: 100%; object-fit: cover; }
+.song-title { color: #d5baff; font-size: 12px; margin: 0 0 4px 0; font-family: sans-serif; font-weight: bold; }
+#playBtn {
+  background: #b90aff; color: white; border: none; padding: 4px 12px; border-radius: 15px; font-size: 11px; cursor: pointer; transition: 0.3s;
+}
+#playBtn:hover { background: #ffffff; color: #21182d; box-shadow: 0 0 8px #ffffff; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+</style>
+<script>
+const audio = document.getElementById('myAudio');
+const playBtn = document.getElementById('playBtn');
+const disc = document.getElementById('musicDisc');
+playBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    playBtn.innerText = '⏸ Pause';
+    disc.style.animationPlayState = 'running';
+  } else {
+    audio.pause();
+    playBtn.innerText = '▶ Play';
+    disc.style.animationPlayState = 'paused';
+  }
+});
+  </script>
+</body></html>
